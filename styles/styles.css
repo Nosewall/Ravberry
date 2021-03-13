@@ -9,11 +9,21 @@ body{
     background-image: url('/images/RaspberryField.jpg');
     background-size: cover;
     background-position: center;
-    
+
     display: flex;
     justify-content: center;
 }
 
 #splashContainer{
+    width: 20%;
+    height: 20%;
+    margin: auto auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
 
+#splash{
+    font-weight:bold;
+    margin-bottom: 0px;
 }
