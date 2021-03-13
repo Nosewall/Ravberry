@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Reactive design</title>
+    <title>Ravberry - Watermarks</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="{{url_for('static', filename='ravberry.png')}}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -11,7 +11,7 @@
 
     <style>
         body {
-            background-image: url('static/images/RaspberryField.jpg');
+            background-image: url('static/RaspberryField.jpg');
             width: 100%;
             height: 100%;
             background-size: cover;
@@ -46,7 +46,7 @@
         }
 
         #imageButton {
-            background-image: url('static/images/imageIcon.png');
+            background-image: url('static/imageIcon.png');
             background-size: 25%;
             background-repeat: no-repeat;
             color: rgb(255, 255, 255);
@@ -57,7 +57,7 @@
         }
 
         #linkButton {
-            background-image: url('static/images/linkIcon.png');
+            background-image: url('static/linkIcon.png');
             background-size: 25%;
             background-repeat: no-repeat;
             color: rgb(255, 255, 255);
@@ -88,6 +88,11 @@
             <button type="button" class="btn btn-light" id="imageButton">Upload an image</button>
             <button type="button" class="btn btn-light" id="linkButton">Link to an image</button>
         </div>
+
+        <form method="POST" action="" enctype="multipart/form-data">
+            <p><input type="file" name="file"></p>
+            <p><input type="submit" value="Submit"></p>
+          </form>
     </div>
 
 </body>
