@@ -3,7 +3,7 @@ from app import watermark
 from flask import Flask, render_template, request, redirect, url_for
 import os
 
-uploads_dir = os.path.abspath(os.getcwd()) + "\\app\\static\\uploads"
+uploads_dir = os.path.abspath(os.getcwd()) + "/app/static/uploads"
 print(uploads_dir)
 
 @app.route('/', methods=['GET', 'POST'])
