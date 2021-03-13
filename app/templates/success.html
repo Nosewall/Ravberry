@@ -29,7 +29,7 @@
     <p class="h1">Success!</p>
     <p class="h2">Check out your images!</p>
     <!-- <a href="/app/static/ravberry.png" download="processedFile">Download</a> -->
-    <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage" href="/instance/uploads/test.png" role="button">Download All</a>
+    <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage" href="{{url_for('static', filename='uploads/test.png')}}" role="button">Download All</a>
     <!-- <button type="button" class="btn btn-primary" id="downloadAll">Download All</button> -->
 
 
@@ -40,19 +40,7 @@
       <div class="card" style="width: 18rem;">
         <img src="{{url_for('static', filename='uploads/test.png')}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="#" class="btn btn-secondary btn-sm">Download</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="/instance/uploads/test.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a href="#" class="btn btn-secondary btn-sm">Download</a>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="/app/static/images/RaspberryField.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a href="#" class="btn btn-secondary btn-sm">Download</a>
+          <a href="{{url_for('static', filename='uploads/test.png')}}" class="btn btn-secondary btn-sm">Download</a>
         </div>
       </div>
       <!-- {% for file in files %}
