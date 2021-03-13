@@ -24,13 +24,20 @@ def watermark_img(in_img_path, out_img_path, img_to_watermark_path, pos, size, r
 
     base_image.paste(watermark_image, pos)
 
-    base image = resolution(resolution, base_image)
+    resolution(resolution, in_img_path)
 
     base_image.show()
 
     base_image.save(out_img_path)
 
-def resolution(res, photo)
+# res is on a scale of 1-100 95 is optimal
+def resolution(res, path)
+    image = image.open(path)
+
+    split_path = path.splitext(path)
+
+    image.save(split_path[0] + "_new_res" + split_path[1], quality=res)
+
     
 
 
