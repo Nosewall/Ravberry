@@ -1,15 +1,14 @@
+import PIL
+
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
 def watermark_text(in_img_path, out_img_path, text, pos):
     photo = Image.open(in_img_path)
-
+    
     drawing = ImageDraw.Draw(photo)
-
     drawing.text(pos, text)
-
-    photo.show()
 
     path = out_img_path
     photo.save(path + "/test.png", "PNG")
@@ -37,8 +36,6 @@ def resolution(res, path):
     image.save(split_path[0] + "_new_res" + split_path[1], quality=res)
 
     
-
-
 if __name__ == '__main__':
     img = 'static/ravberry.png'
     wm_text(img, 'imageWaterMarked.png', text='hi there its mike lim', pos=(100, 100))
