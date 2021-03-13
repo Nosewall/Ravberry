@@ -15,3 +15,8 @@ def index():
             watermark.watermark_text(filename, uploads_dir, "hello", [50, 50])
         return redirect(url_for('index'))
     return render_template('index.html')
+
+
+@app.route('/success')
+def success():
+    return render_template('success.html')

@@ -29,7 +29,7 @@
     <p class="h1">Success!</p>
     <p class="h2">Check out your images!</p>
     <!-- <a href="/app/static/ravberry.png" download="processedFile">Download</a> -->
-    <a class="btn btn-primary" id="downloadAll" download="processedFile" href="/app/static/ravberry.png" role="button">Download All</a>
+    <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage" href="/instance/uploads/test.png" role="button">Download All</a>
     <!-- <button type="button" class="btn btn-primary" id="downloadAll">Download All</button> -->
 
 
@@ -38,7 +38,13 @@
 
     <div class="container overflow-auto d-grid" id="image-container">
       <div class="card" style="width: 18rem;">
-        <img src="/app/static/images/ravberry.png" class="card-img-top" alt="...">
+        <img src="{{url_for('instance/uploads', filename='test.png')}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="#" class="btn btn-secondary btn-sm">Download</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/instance/uploads/test.png" class="card-img-top" alt="...">
         <div class="card-body">
           <a href="#" class="btn btn-secondary btn-sm">Download</a>
         </div>
@@ -49,12 +55,10 @@
           <a href="#" class="btn btn-secondary btn-sm">Download</a>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-        <img src="/app/static/images/RaspberryField.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a href="#" class="btn btn-secondary btn-sm">Download</a>
-        </div>
-      </div>
+      <!-- {% for file in files %}
+        <img src="{{ url_for('upload', filename=file) }}" style="width: 64px">
+      {% endfor %} -->
+      <img >
     </div>
 
   </div>
