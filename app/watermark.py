@@ -11,8 +11,8 @@ def watermark_text(in_img_path, out_img_path, text, pos):
 
     photo.show()
 
-    print(out_img_path)
-    photo.save(out_img_path, "JPEG")
+    path = out_img_path
+    photo.save(path + "/test.png", "PNG")
 
 def watermark_img(in_img_path, out_img_path, img_to_watermark_path, pos, size, resolution):
     base_image = Image.open(in_img_path)
