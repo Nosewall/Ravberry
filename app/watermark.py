@@ -4,17 +4,19 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-def watermark_text(in_img_path, out_img_path, text, pos):
+def watermark_text(in_img_path, out_img_path, text, pos, size, color, font_name, resolution):
     photo = Image.open(in_img_path)
 
     drawing = ImageDraw.Draw(photo)
 
-    drawing.text(pos, text)
+    font = ImageFont.truetype(font_name, size)
+
+    drawing.text(pos, text, fill=color, font=font)
 
     photo.show()
 
-    print(out_img_path)
-    photo.save(out_img_path, "JPEG")
+    photo.save(out_img_path)
+
 
 def watermark_img(in_img_path, out_img_path, img_to_watermark_path, pos, size, resolution):
     base_image = Image.open(in_img_path)
