@@ -28,23 +28,31 @@
   <div class="container">
     <p class="h1">Success!</p>
     <p class="h2">Check out your images!</p>
-    <button type="button" class="btn btn-primary">Download All</button>
+    <!-- <a href="/app/static/ravberry.png" download="processedFile">Download</a> -->
+    <a class="btn btn-primary" id="downloadAll" download="processedFile" href="/app/static/ravberry.png" role="button">Download All</a>
+    <!-- <button type="button" class="btn btn-primary" id="downloadAll">Download All</button> -->
+
+
 
     <!-- <input type="file" name="client-file" id="get-files" multiple /> -->
 
-    <div class="container overflow-auto" id="image-container" >
-      <div class="d-flex append-content" id="image-append">
-        <div class="card" style="width: 18rem;">
-          <img src="/app/static/ravberry.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary btn-sm">Download</a>
-          </div>
+    <div class="container overflow-auto d-grid" id="image-container">
+      <div class="card" style="width: 18rem;">
+        <img src="/app/static/ravberry.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="#" class="btn btn-secondary btn-sm">Download</a>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="/app/static/RaspberryField.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary btn-sm">Download</a>
-          </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/app/static/RaspberryField.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="#" class="btn btn-secondary btn-sm">Download</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="/app/static/RaspberryField.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="#" class="btn btn-secondary btn-sm">Download</a>
         </div>
       </div>
     </div>

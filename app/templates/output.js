@@ -1,7 +1,27 @@
-const container = document.getElementById("image-append");
+$(document).ready(function () {
+  const container = document.getElementById("image-append");
 
-var fs = require('fs');
-var files = fs.readdirSync('/assets/photos/');
+  let imageCard = $(
+    '<div class="card" style="width: 18rem;"><img src="/app/static/RaspberryField.jpg" class="card-img-top" alt="..."><div class="card-body"><a href="#" class="btn btn-secondary btn-sm">Download</a></div></div>'
+  );
 
-console.log(files);
+  //   var fs = require("fs");
+  //   var files = fs.readdirSync("/assets/photos/");
 
+  //   console.log(files);
+
+  let h1  = $("<h1>Hello WOrld</h1>")
+  console.log(imageCard);
+
+  $(container).append(imageCard);
+  console.log(h1);
+  $(container).append(h1);
+  document.body.append(imageCard);
+
+
+
+    document.getElementById("downloadAll").addEventListener("click", function(){
+        download("/app/static/ravberry.png");
+    }, false)
+
+});
