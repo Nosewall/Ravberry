@@ -26,28 +26,15 @@ body{
     margin-bottom: 0px;
 }
 
-#buttonDiv{
-    height: 60%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 #imageButton{
-    background-image: url(/app/static/imageIcon.png);
-    background-size:25%;
-    background-repeat: no-repeat;
     color: rgb(255, 255, 255);
     font-weight:bold;
     font-size: 17pt;
     text-shadow: 2px 2px 1px black;
-    -webkit-text-stroke: 1px black;
-     
+    -webkit-text-stroke: 1px black; 
 }
 
 #linkButton{
-    background-image: url(/app/static/linkIcon.png);
-    background-size:25%;
-    background-repeat: no-repeat;
     color: rgb(255, 255, 255);
     font-weight:bold;
     font-size: 18pt;
