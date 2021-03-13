@@ -27,3 +27,31 @@ body{
     font-weight:bold;
     margin-bottom: 0px;
 }
+
+#buttonDiv{
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#imageButton{
+    background-image: url(/images/imageIcon.png);
+    background-size:80%;
+    background-repeat: no-repeat;
+    color: rgb(231, 108, 108);
+    font-weight:bold;
+    font-size: 15pt;
+    -webkit-text-stroke: 1px black;
+     
+}
+
+#linkButton{
+    background-image: url(/images/linkIcon.png);
+    background-size:80%;
+    background-repeat: no-repeat;
+    color: rgb(231, 108, 108);
+    font-weight:bold;
+    font-size: 15pt;
+    -webkit-text-stroke: 1px black;
+    bottom:5%;
+}
