@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   //   console.log(files);
 
-  let h1  = $("<h1>Hello WOrld</h1>")
+  let h1 = $("<h1>Hello WOrld</h1>");
   console.log(imageCard);
 
   $(container).append(imageCard);
@@ -18,10 +18,20 @@ $(document).ready(function () {
   $(container).append(h1);
   document.body.append(imageCard);
 
+  document.getElementById("downloadAll").addEventListener(
+    "click",
+    function () {
+      download("/app/static/ravberry.png");
+    },
+    false
+  );
 
 
-    document.getElementById("downloadAll").addEventListener("click", function(){
-        download("/app/static/ravberry.png");
-    }, false)
+  // get each image from my folder
+  
 
+  // Just a home button! 
+  document.getElementById("homeBtn").onclick = function(){
+      location.href = "index.html";
+  };
 });
