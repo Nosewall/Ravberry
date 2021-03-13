@@ -25,19 +25,32 @@
     </form>
   </nav>
 
-  <p class="h1">Success!</p>
-  <p class="h2">Check out your images!</p>
+  <div class="container">
+    <p class="h1">Success!</p>
+    <p class="h2">Check out your images!</p>
+    <button type="button" class="btn btn-primary">Download All</button>
 
-  
+    <!-- <input type="file" name="client-file" id="get-files" multiple /> -->
 
-  <button type="button" class="btn btn-primary">Create</button>
-  <input type="file" name="client-file" id="get-files" multiple />
-
-  <div class="container overflow-auto">
-    <div class="d-flex append-content">
-
+    <div class="container overflow-auto">
+      <div class="d-flex append-content">
+        <div class="card" style="width: 18rem;">
+          <img src="./images/RaspberryField.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="#" class="btn btn-secondary btn-sm">Download</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./images/RaspberryField.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="#" class="btn btn-secondary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
+
 
   <script src="createCard.js"></script>
 </body>
