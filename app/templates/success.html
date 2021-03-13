@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
-  <!-- <link rel="stylesheet" href="/styles/skeleton.css" /> -->
+  <link rel="stylesheet" href="static/styles/success.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Optional styles and scripts of your own -->
@@ -25,19 +25,32 @@
     </form>
   </nav>
 
-  <p class="h1">Success!</p>
-  <p class="h2">Check out your images!</p>
+  <div class="container">
+    <p class="h1">Success!</p>
+    <p class="h2">Check out your images!</p>
+    <button type="button" class="btn btn-primary">Download All</button>
 
-  
+    <!-- <input type="file" name="client-file" id="get-files" multiple /> -->
 
-  <button type="button" class="btn btn-primary">Create</button>
-  <input type="file" name="client-file" id="get-files" multiple />
-
-  <div class="container overflow-auto">
-    <div class="d-flex append-content">
-
+    <div class="container overflow-auto" id="image-container" >
+      <div class="d-flex append-content">
+        <div class="card" style="width: 18rem;">
+          <img src="./images/RaspberryField.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="#" class="btn btn-secondary btn-sm">Download</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./images/RaspberryField.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="#" class="btn btn-secondary btn-sm">Download</a>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
+
 
   <script src="createCard.js"></script>
 </body>

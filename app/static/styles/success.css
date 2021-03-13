@@ -1,0 +1,8 @@
+#image-container {
+    background-color: lightgrey;
+    /* height: 50vh; */
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    margin-top: 3vh;
+}
+
