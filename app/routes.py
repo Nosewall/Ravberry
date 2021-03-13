@@ -13,6 +13,6 @@ def index():
         if uploaded_file.filename != '':
             filename = os.path.join(uploads_dir, uploaded_file.filename)
             uploaded_file.save(os.path.join(uploads_dir, uploaded_file.filename))
-            watermark.watermark_text(filename, uploads_dir, "hello", [50, 50])
+            watermark.watermark_text(filename, uploads_dir, "asdflasdkjfa", [50, 50])
             return render_template('success.html')
     return render_template('index.html')
