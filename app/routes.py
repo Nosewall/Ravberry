@@ -32,7 +32,7 @@ def options(uploaded_file):
             print("transparency")
             image_path = str(uploads_dir) + "\\" + uploaded_file
             file = watermark.watermark_text(
-                image_path, str(uploads_dir), request.form["watermarkText"], request.form["position"].lower(), 'Agilia', request.form["fontSize"], int(request.form["resolution"])
+                image_path, str(uploads_dir), request.form["watermarkText"], request.form["position"].lower(), request.form["font"], request.form["fontSize"], int(request.form["resolution"])
             )
             return render_template(
                 "options.html", image_url="../static/uploads" + file

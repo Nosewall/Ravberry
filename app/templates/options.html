@@ -152,17 +152,18 @@
     <div id="imageOptionsModal">
         <div id="imageOptions" class="card" style="width: 25rem;">
             <form method="POST" action="" enctype="multipart/form-data">
-                <label><input type="range" min="0" max="100" id="resolutionSlider" name="resolution" value="60">
+                <label style="visibility: hidden;">
+                    <input type="range" min="0" max="100" id="resolutionSlider" name="resolution" value="60">
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
                 </label>
                 <label><input name = "fontSize" type="range" min="0" max="100" id="fontSizeSlider" value="60">
                     Font Size
-                    <p class="d-inline" id="fontSizeSliderAmount"></p>
+                    <p class="d-inline" id="fontSizeSliderAmount">60</p>
                 </label>
                 <div class="input-group mb-3">
                     <!-- <button class="btn-primary" onclick="setText()" type="button" id="button-addon2">Set Text!</button> -->
-                    <input type="text" class="form-control" placeholder="Text for watermark!"
+                    <input name="watermarkText" type="text" class="form-control" placeholder="Text for watermark!"
                         aria-label="Text for watermark!" aria-describedby="button-addon2">
                 </div>
                 <!-- <label class="d-inline"><input type="text" id="textInput" class="form-control" placeholder="Text for watermark!"> 
@@ -171,7 +172,7 @@
                     </button>
                 </label> -->
                 <div class="d-grid gap-3">
-                    <select class="form-select" id="fontSelector" aria-label="Default select example">
+                    <select name="font" class="form-select" id="fontSelector" aria-label="Default select example">
                         <option selected>Select Fonts</option>
                         <option value="Agilia">Agilia</option>
                         <option value="Times New Roman">Times New Roman</option>
@@ -191,7 +192,7 @@
                         <option value="Center Middle">Center Middle</option>
                         <option value="Center Right">Center Right</option>
                     </select>
-                    <p><input type="file" class="btn btn-light" name="file"></p>
+                    <p style="visibility: hidden;"><input type="file" class="btn btn-light" name="file"></p>
                 </div>
                 <button class="btn btn-primary" id="updateButton" onclick="closeOptions()">Update!</button>
                 <!-- <label><input type="button" class="btn btn-outline-success me-2" id="previewButton" onclick="closeOptions()">Preview</label> -->

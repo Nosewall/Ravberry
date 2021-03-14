@@ -15,7 +15,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
 
     font_file = get_font_file(font_name)
 
-    temp_font = ImageFont.truetype(str(Path(font_file)), font_size)
+    temp_font = ImageFont.truetype(str(Path(font_file)), int(font_size))
 
     temp_pos = get_position(pos, base_image)
 
@@ -28,7 +28,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     #set test.png later
     base_image.save(path + "/test.png", "PNG")
 
-    resolution(res, out_img_path)
+    return "/test.png"
 
 def watermark_img(
     in_img_path,
@@ -53,10 +53,6 @@ def watermark_img(
     base_image.save(path + "/test.png", "PNG")
 
     base_image.show()
-
-    resolution(res, out_img_path)
-
-    
 
 
 def watermark_with_transparency(
@@ -105,32 +101,34 @@ def calc_cordinates(image, x_ratio, y_ratio):
 
 def get_font_file(font_name):
     if font_name == "Agilia":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
     if font_name == "Times New Roman":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
     if font_name == "Vonique":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
     if font_name == "Comic Sans":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
 
 def get_position(pos, image):
     if pos == "top left":
-        return calc_cordinates(image, .10, .10)
+        return calc_cordinates(image, 0.10, 0.10)
     elif pos == "top middle":
-        return calc_cordinates(image, .10, .50)
+        return calc_cordinates(image, 0.50, 0.10)
     elif pos == "top right":
-        return calc_cordinates(image, .10, .75)
+        return calc_cordinates(image, 0.75, 0.10)
     elif pos == "bottom left":
-        return calc_cordinates(image, .75, .10)
+        return calc_cordinates(image, 0.10, 0.75)
     elif pos == "bottom middle":
-        return calc_cordinates(image, .75, .50)
+        return calc_cordinates(image, 0.50, 0.75)
     elif pos == "bottom right":
-        return calc_cordinates(image, .75, .75)
+        return calc_cordinates(image, 0.75, 0.75)
     elif pos == "center left":
-        return calc_cordinates(image, .50,.10)
+        return calc_cordinates(image, 0.10, 0.50)
     elif pos == "center middle":
-        return calc_cordinates(image, .50, .50)
+        return calc_cordinates(image, 0.50, 0.50)
     elif pos == "center right":
-        return calc_cordinates(image, .50, .75)
+        return calc_cordinates(image, 0.75, 0.50)
     else:
-        return calc_cordinates(image, .10, .75)
+        return calc_cordinates(image, 0.10, 0.75)
+
+
