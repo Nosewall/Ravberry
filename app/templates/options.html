@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/app/static/styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
         body {
@@ -110,8 +111,14 @@
         <div id="imageOptions">
             <label><input type="checkbox" id="imageMarkCheckBox">Image Watermark</label>
             <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
-            <label><input type="range" min="0" max="100" id="resolutionSlider">Resolution</label>
-            <label><input type="range" min="0" max="100" id="fontSizeSlider">Font Size</label>
+            <label><input type="range" min="0" max="100" id="resolutionSlider" value="60">
+                Resolution
+                <p class="d-inline" id="resolutionSliderAmount"></p>
+            </label>
+            <label><input type="range" min="0" max="100" id="fontSizeSlider" value="60">
+                Font Size
+                <p class="d-inline" id="fontSizeSliderAmount"></p>
+            </label>
             <label><input type="button" id="previewButton" onclick="closeOptions()">Preview</label>
         </div>
     </div>
@@ -124,23 +131,58 @@
         let fontSize = 20;
         let font;
 
+        // ************************************        
+        // Create variables for slider on change events!
+        // ************************************        
+        var resSlider = document.getElementById("resolutionSlider");
+        var resSliderValue = document.getElementById("resolutionSliderAmount");
+
+        var fontSlider = document.getElementById("fontSizeSlider");
+        var fontSliderValue = document.getElementById("fontSizeSliderAmount");
+
+        // ************************************
+        // Event Change update the values here! 
+        // ************************************
+        resSlider.onchange = function(){
+            resSliderValue.innerHTML = this.value;
+            console.log("resolution value: " + this.value);
+        }
+
+        fontSlider.onchange = function() {
+            fontSliderValue.innerHTML = this.value;
+            console.log("font value: " + this.value);
+        }            
+
+        
+        // ************************************
+        // Modal Window Controls
+        // ************************************
         function openOptions() {
+            console.log("option options ran!")
             document.getElementById("imageOptionsModal").style.display = "flex";
-            document.getElementById("main").style.display = "none"
+            document.getElementById("main").style.display = "none";
         }
 
         function closeOptions() {
             document.getElementById("imageOptionsModal").style.display = "none";
-            document.getElementById("main").style.display = "flex"
+            document.getElementById("main").style.display = "flex";
             updateVariables()
         }
 
+        // function updateResolutionValue(resolutionValue){
+        //     var sliderDiv = document.getElementById("resolutionSliderAmount");
+        //     sliderDiv.innerHTML = resolutionValue;
+        //     console.log(resolutionValue);
+        // }
+
         function updateVariables() {
-            resolution = document.getElementById("resolutionSlider").innerHTML;
+            // we want to change the value no tthe innerHTML()
+            // value = 
+            // resolution = document.getElementById("resolutionSlider").innerHTML;
             hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
             hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
             fontSize = document.getElementById("fontSizeSlider").innerHTML;
-        }
+        } 
     </script>
 
 </body>
