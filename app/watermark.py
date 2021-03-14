@@ -9,13 +9,15 @@ def watermark_text(in_img_path, out_img_path, text, pos):
     
     drawing = ImageDraw.Draw(photo)
 
+    font_path = "/Users/mikelim/Desktop/Ravberry/Ravberry/app/static/fonts/AgiliaItalic.ttf"
+
     temp_color = (0,0,0)
 
     temp_size = 40
 
-    temp_font = ImageFont.truetype("static/fonts/AgiliaItalic.ttf", temp_size)
+    temp_font = ImageFont.truetype(font_path, temp_size)
 
-    drawing.text(pos, text, fill = temp_color, font = temp_font)
+    drawing.text(pos, text, fill=temp_color, font=temp_font)
 
     path = out_img_path
     photo.save(path + "/test.png", "PNG")

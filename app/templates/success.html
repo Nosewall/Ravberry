@@ -21,7 +21,7 @@
   <nav class="navbar navbar-light bg-light">
     <form class="container-fluid justify-content-start">
       <button class="btn btn-outline-success me-2" type="button" id="homeBtn">Home</button>
-      <button class="btn btn-sm btn-outline-secondary" href="index.html" >Add Images</button>
+      <button class="btn btn-sm btn-outline-secondary" href=index >Add Images</button>
     </form>
   </nav>
 
@@ -40,12 +40,9 @@
       <div class="card" style="width: 18rem;">
         <img src="{{url_for('static', filename='uploads/test.png')}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <a href="{{url_for('static', filename='uploads/test.png')}}" class="btn btn-secondary btn-sm">Download</a>
+          <a href="{{url_for('static', filename='uploads/test.png')}}" target="_blank" class="btn btn-secondary btn-sm">Enlarge</a>
         </div>
       </div>
-      <!-- {% for file in files %}
-        <img src="{{ url_for('upload', filename=file) }}" style="width: 64px">
-      {% endfor %} -->
       <img >
     </div>
 
