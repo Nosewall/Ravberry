@@ -31,11 +31,11 @@ def options(uploaded_file):
         if uploaded_file[-3:] == "png" or uploaded_file[-3:] == "gif":
             print("transparency")
             image_path = str(uploads_dir) + "\\" + uploaded_file
-            watermark.watermark_with_transparency(
-                image_path, str(uploads_dir), watermarks_dir, [50, 50], int(request.form["resolution"])
+            file = watermark.watermark_with_transparency(
+                image_path, str(uploads_dir), watermarks_dir, request.form["position"].lower(), int(request.form["resolution"])
             )
             return render_template(
-                "options.html", image_url="../static/uploads/" + uploaded_file
+                "options.html", image_url="../static/uploads" + file
             )
         else:
             print("solid")
