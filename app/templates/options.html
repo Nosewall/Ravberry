@@ -111,11 +111,19 @@
             <label><input type="checkbox" id="imageMarkCheckBox">Image Watermark</label>
             <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
             <label><input type="range" min="0" max="100" id="resolutionSlider">Resolution</label>
+            <label><input type="range" min="0" max="100" id="fontSizeSlider">Font Size</label>
             <label><input type="button" id="previewButton" onclick="closeOptions()">Preview</label>
         </div>
     </div>
 
     <script>
+
+        let resolution = 100;
+        let hasTextWatermark = false;
+        let hasImageWatermark = false;
+        let fontSize = 20;
+        let font;
+
         function openOptions() {
             document.getElementById("imageOptionsModal").style.display = "flex";
             document.getElementById("main").style.display = "none"
@@ -124,6 +132,14 @@
         function closeOptions() {
             document.getElementById("imageOptionsModal").style.display = "none";
             document.getElementById("main").style.display = "flex"
+            updateVariables()
+        }
+
+        function updateVariables() {
+            resolution = document.getElementById("resolutionSlider").innerHTML;
+            hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
+            hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
+            fontSize = document.getElementById("fontSizeSlider").innerHTML;
         }
     </script>
 
