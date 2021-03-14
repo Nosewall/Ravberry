@@ -43,9 +43,9 @@
         #splashContainer {
             background-color: white;
             display: grid;
-            grid-template-columns: 10% 1fr;
+            grid-template-columns: 15% 1fr;
             grid-template-rows: 1fr;
-            width: 60%;
+            width: 50%;
             height: 60%;
             border-style: solid;
         }
@@ -56,12 +56,15 @@
             justify-content: space-around;
             border-collapse: collapse;
             grid-column: 1-1;
+            
+            /* margin: auto; */
+            background-color: #adb5bd;
         }
 
         #display {
             grid-column: 2-2;
-            border-style: solid;
-            max-width: 500px;
+            /* border-style: solid; */
+            max-width: 100%;
             /* max-height: 100%; */
         }
 
@@ -101,7 +104,7 @@
         }
 
         #previewImage {
-            max-width: 100%;
+            max-width: 80%;
             max-height: 60%;
             height: auto;
             align-self: center;
