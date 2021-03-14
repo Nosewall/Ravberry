@@ -17,8 +17,12 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            justify-content: space-evenly;
         }
+
 
         main {
             width: 100%;
@@ -27,7 +31,9 @@
             justify-content: center;
             flex-direction: column;
             justify-content: space-evenly;
+            margin-top: 3vh; 
         }
+
 
         html {
             width: 100%;
@@ -40,7 +46,7 @@
             grid-template-columns: 10% 1fr;
             grid-template-rows: 1fr;
             width: 60%;
-            height: 500px;
+            height: 60%;
             border-style: solid;
         }
 
@@ -55,7 +61,7 @@
         #display {
             grid-column: 2-2;
             border-style: solid;
-            max-width:  500px;
+            max-width: 500px;
             /* max-height: 100%; */
         }
 
@@ -79,7 +85,8 @@
             margin: auto auto;
             flex-direction: column;
             background-color: white;
-
+            /* position: absolute; */
+            
         }
 
         #imageOptions {
@@ -100,24 +107,33 @@
             align-self: center;
         }
 
+        .form-select {
+            width: 50%;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 
+
+
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <form class="container-fluid justify-content-start">
+            <button class="btn btn-outline-success me-2" href=index id="homeBtn">Home</button>
+        </form>
+    </nav>
+
     <main id="main">
-        <div class="container" id="splashContainer">
+        <div class="container overflow-auto" id="splashContainer">
             <div id="sidebar">
-                <button id="optionsButton" onClick="openOptions()">Open Options</button>
-                <form class="container-fluid">
-                    <button class="btn btn-outline-success me-2" href=index id="homeBtn">Home</button>
-                </form>
+                <button id="optionsButton" class="btn btn-secondary" onClick="openOptions()">Open Options</button>
             </div>
             <div id="display">
                 <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
-        <button type="button" id="submitButton">Submit</button>
+        <button type="button" id="submitButton" onclick="finish()">Finish editting</button>
     </main>
 
     <div id="imageOptionsModal">
@@ -132,7 +148,26 @@
                 Font Size
                 <p class="d-inline" id="fontSizeSliderAmount"></p>
             </label>
+            <select class="form-select" id="fontSelector" aria-label="Default select example">
+                <option selected>Select Fonts</option>
+                <option value="Agilia">Agilia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Vonique">Vonique</option>
+                <option value="Comic Sans">Comic Sans</option>
+            </select>
+            <select class="form-select" id="positionSelector" aria-label="Default select example">
+                <option selected>Select Position</option>
+                <option value="Top Left">Top Left</option>
+                <option value="Top Middle">Top Middle</option>
+                <option value="Top Right">Top Right</option>
+                <option value="Bottom Left">Bottom Left</option>
+                <option value="Bottom Right">Bottom Right</option>
+                <option value="Center Left">Center Left</option>
+                <option value="Center Middle">Center Middle</option>
+                <option value="Center Right">Center Right</option>
+            </select>
             <label><input type="button" id="previewButton" onclick="closeOptions()">Preview</label>
+
         </div>
     </div>
 
@@ -156,17 +191,17 @@
         // ************************************
         // Event Change update the values here! 
         // ************************************
-        resSlider.onchange = function(){
+        resSlider.onchange = function () {
             resSliderValue.innerHTML = this.value;
             console.log("resolution value: " + this.value);
         }
 
-        fontSlider.onchange = function() {
+        fontSlider.onchange = function () {
             fontSliderValue.innerHTML = this.value;
             console.log("font value: " + this.value);
-        }            
+        }
 
-        
+
         // ************************************
         // Modal Window Controls
         // ************************************
@@ -195,7 +230,11 @@
             hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
             hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
             fontSize = document.getElementById("fontSizeSlider").innerHTML;
-        } 
+        }
+
+        function finish() {
+            window.location = "success.html";
+        }
     </script>
 
 </body>

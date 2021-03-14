@@ -9,29 +9,30 @@ import os
 from pathlib import Path, PureWindowsPath
 
 
-def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, font_color):
+def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, resolution):
     photo = Image.open(in_img_path)
 
     drawing = ImageDraw.Draw(photo)
 
-    font_file = PureWindowsPath(
-        os.path.join(
-            if font_name == "Agilia"
-                return os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"
-            if font_name == "Times New Roman"
-                return os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"
-            if font_name == "Vonique 64"
-                return os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"
-        )
-    )
+    font_file = get_font_file(font_name)
 
-    tfont = ImageFont.truetype(str(Path(filename)), font_size)
+    temp_font = ImageFont.truetype(str(Path(font_file)), font_size)
 
-    drawing.text(pos, text, fill=font_color, font=temp_font)
+    temp_pos = get_position(pos)
+
+    font_color = (0,0,0)
+    
+    drawing.text(temp_pos, text, fill=font_color, font=temp_font)
 
     path = out_img_path
+
+    #set test.png later
     photo.save(path + "/test.png", "PNG")
 
+    if resolution >= 95
+        resolution(95, out_img_path)
+    else
+        resolution(resolution, out_img_path)
 
 def watermark_img(
     in_img_path,
@@ -88,6 +89,39 @@ def calc_cordinates(image, x_ratio, y_ratio):
     return [x, y]
 
 
+def get_font_file(font_name)
+    if font_name == "Agilia"
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf")
+    if font_name == "Times New Roman"
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf")
+    if font_name == "Vonique"
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf")
+    if font_name == "Comic Sans"
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf")
+
+def get_position(pos)
+    if pos == "top left"
+        return (0, 0)
+    if pos == "top middle"
+        return (0, 0)
+    if pos == "top right"
+        return (0, 0)
+    if pos == "bottom left"
+        return (0, 0)
+    if pos == "bottom middle"
+        return (0, 0)
+    if pos == "bottom right"
+        return (0, 0)
+    if pos == "center left"
+        return (0, 0)
+    if pos == "center middle"
+        return (0, 0)
+    if pos == "center right"
+        return (0, 0)
+    else
+        return (0, 0)
+
 if __name__ == "__main__":
     img = "static/ravberry.png"
     wm_text(img, "imageWaterMarked.png", text="hi there its mike lim", pos=(100, 100))
+
