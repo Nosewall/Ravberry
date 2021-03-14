@@ -111,25 +111,25 @@ def get_font_file(font_name):
 
 def get_position(pos, image):
     if pos == "top left":
-        return calc_cordinates(image, .10, .10)
+        return calc_cordinates(image, 0.10, 0.10)
     elif pos == "top middle":
-        return calc_cordinates(image, .10, .50)
+        return calc_cordinates(image, 0.50, 0.10)
     elif pos == "top right":
-        return calc_cordinates(image, .10, .75)
+        return calc_cordinates(image, 0.75, 0.10)
     elif pos == "bottom left":
-        return calc_cordinates(image, .75, .10)
+        return calc_cordinates(image, 0.10, 0.75)
     elif pos == "bottom middle":
-        return calc_cordinates(image, .75, .50)
+        return calc_cordinates(image, 0.50, 0.75)
     elif pos == "bottom right":
-        return calc_cordinates(image, .75, .75)
+        return calc_cordinates(image, 0.75, 0.75)
     elif pos == "center left":
-        return calc_cordinates(image, .50,.10)
+        return calc_cordinates(image, 0.10, 0.50)
     elif pos == "center middle":
-        return calc_cordinates(image, .50, .50)
+        return calc_cordinates(image, 0.50, 0.50)
     elif pos == "center right":
-        return calc_cordinates(image, .50, .75)
+        return calc_cordinates(image, 0.75, 0.50)
     else:
-        return calc_cordinates(image, .10, .75)
+        return calc_cordinates(image, 0.10, 0.75)
 
 
 
