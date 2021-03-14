@@ -18,7 +18,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
 
     temp_font = ImageFont.truetype(str(Path(font_file)), font_size)
 
-    temp_pos = get_position(pos)
+    temp_pos = get_position(pos, photo)
 
     font_color = (0,0,0)
     
@@ -92,7 +92,7 @@ def calc_cordinates(image, x_ratio, y_ratio):
     y = out[1] * y_ratio
     x = int(x)
     y = int(y)
-    return [x, y]
+    return (x, y)
 
 
 def get_font_file(font_name):
@@ -105,29 +105,28 @@ def get_font_file(font_name):
     if font_name == "Comic Sans":
         return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
 
-def get_position(pos):
+def get_position(pos, image):
     if pos == "top left":
-        return (.10, .10)
+        return calc_cordinates(image, .10, .10)
     if pos == "top middle":
-        return (.10, .50)
+        return calc_cordinates(image, .10, .50)
     if pos == "top right":
-        return (.10, .75)
+        return calc_cordinates(image, .10, .75)
     if pos == "bottom left":
-        return (.75, .10)
+        return calc_cordinates(image, .75, .10)
     if pos == "bottom middle":
-        return (.75, .50)
+        return calc_cordinates(image, .75, .50)
     if pos == "bottom right":
-        return (.75, .75)
+        return calc_cordinates(image, .75, .75)
     if pos == "center left":
-        return (.50,.10)
+        return calc_cordinates(image, .50,.10)
     if pos == "center middle":
-        return (.50, .50)
+        return calc_cordinates(image, .50, .50)
     if pos == "center right":
-        return (.50, .75)
+        return calc_cordinates(image, .50, .75)
     else:
-        return (0.10, .75)
+        return calc_cordinates(image, .10, .75)
 
-def 
 
 if __name__ == "__main__":
     img = "static/ravberry.png"
