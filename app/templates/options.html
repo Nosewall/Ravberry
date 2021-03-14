@@ -31,7 +31,7 @@
             justify-content: center;
             flex-direction: column;
             justify-content: space-evenly;
-            margin-top: 3vh; 
+            margin-top: 3vh;
         }
 
 
@@ -86,7 +86,7 @@
             flex-direction: column;
             background-color: white;
             /* position: absolute; */
-            
+
         }
 
         #imageOptions {
@@ -112,7 +112,9 @@
             margin: 0 auto;
         }
 
-        #downloadAll, #enlarge{
+        #downloadAll,
+        #enlarge,
+        #updateButton {
             width: 30%;
             margin: 0 auto;
         }
@@ -139,43 +141,47 @@
             </div>
         </div>
 
-        <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage" href="{{url_for('static', filename='uploads/test.png')}}" role="button">Download</a>
-        <a href="{{url_for('static', filename='uploads/test.png')}}" target="_blank" class="btn btn-secondary btn-sm" id="enlarge">Enlarge</a>
+        <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage"
+            href="{{url_for('static', filename='uploads/test.png')}}" role="button">Download</a>
+        <a href="{{url_for('static', filename='uploads/test.png')}}" target="_blank" class="btn btn-secondary btn-sm"
+            id="enlarge">Enlarge</a>
 
     </main>
 
     <div id="imageOptionsModal">
         <div id="imageOptions">
-            <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
-            <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
-            <label><input type="range" min="0" max="100" id="resolutionSlider" value="60">
-                Resolution
-                <p class="d-inline" id="resolutionSliderAmount"></p>
-            </label>
-            <label><input type="range" min="0" max="100" id="fontSizeSlider" value="60">
-                Font Size
-                <p class="d-inline" id="fontSizeSliderAmount"></p>
-            </label>
-            <select class="form-select" id="fontSelector" aria-label="Default select example">
-                <option selected>Select Fonts</option>
-                <option value="Agilia">Agilia</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Vonique">Vonique</option>
-                <option value="Comic Sans">Comic Sans</option>
-            </select>
-            <select class="form-select" id="positionSelector" aria-label="Default select example">
-                <option selected>Select Position</option>
-                <option value="Top Left">Top Left</option>
-                <option value="Top Middle">Top Middle</option>
-                <option value="Top Right">Top Right</option>
-                <option value="Bottom Left">Bottom Left</option>
-                <option value="Bottom Right">Bottom Right</option>
-                <option value="Center Left">Center Left</option>
-                <option value="Center Middle">Center Middle</option>
-                <option value="Center Right">Center Right</option>
-            </select>
-            <label><input type="button" id="previewButton" onclick="closeOptions()">Preview</label>
-
+            <form method="POST" action="" enctype="multipart/form-data"></form>
+                <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
+                <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
+                <label><input type="range" min="0" max="100" id="resolutionSlider" value="60">
+                    Resolution
+                    <p class="d-inline" id="resolutionSliderAmount"></p>
+                </label>
+                <label><input type="range" min="0" max="100" id="fontSizeSlider" value="60">
+                    Font Size
+                    <p class="d-inline" id="fontSizeSliderAmount"></p>
+                </label>
+                <select class="form-select" id="fontSelector" aria-label="Default select example">
+                    <option selected>Select Fonts</option>
+                    <option value="Agilia">Agilia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Vonique">Vonique</option>
+                    <option value="Comic Sans">Comic Sans</option>
+                </select>
+                <select class="form-select" id="positionSelector" aria-label="Default select example">
+                    <option selected>Select Position</option>
+                    <option value="Top Left">Top Left</option>
+                    <option value="Top Middle">Top Middle</option>
+                    <option value="Top Right">Top Right</option>
+                    <option value="Bottom Left">Bottom Left</option>
+                    <option value="Bottom Right">Bottom Right</option>
+                    <option value="Center Left">Center Left</option>
+                    <option value="Center Middle">Center Middle</option>
+                    <option value="Center Right">Center Right</option>
+                </select>
+                <button class="btn btn-primary" id="updateButton" onclick="closeOptions()">Update!</button>
+            <!-- <label><input type="button" class="btn btn-outline-success me-2" id="previewButton" onclick="closeOptions()">Preview</label> -->
+            </form>
         </div>
     </div>
 
