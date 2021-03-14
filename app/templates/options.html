@@ -12,7 +12,7 @@
 
     <style>
         body {
-            background-image: url('static/images/RaspberryField.jpg');
+            background-image: url('/static/images/RaspberryField.jpg');
             width: 100%;
             height: 100%;
             background-size: cover;
@@ -149,7 +149,7 @@
     </main>
 
     <div id="imageOptionsModal">
-        <div id="imageOptions">
+        <div id="imageOptions" class="card"  style="width: 20rem;">
             <form method="POST" action="" enctype="multipart/form-data">
                 <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
                 <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
@@ -161,8 +161,11 @@
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
-                <label><input type="text" id="textInput"> <button onclick="setText()">Set text!</button>
-                    Text for watermark
+                <label class="d-inline"><input type="text" id="textInput"> 
+                    Text for watermark!
+                    <button onclick="setText()">
+                        Set text!
+                    </button>
                 </label>
                 <select class="form-select" id="fontSelector" aria-label="Default select example">
                     <option selected>Select Fonts</option>
