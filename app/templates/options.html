@@ -149,13 +149,14 @@
     <div id="imageOptionsModal">
         <div id="imageOptions" class="card" style="width: 25rem;">
             <form method="POST" action="" enctype="multipart/form-data">
-                <label><input type="range" min="0" max="100" id="resolutionSlider" name="resolution" value="60">
+                <label style="visibility: hidden;">
+                    <input type="range" min="0" max="100" id="resolutionSlider" name="resolution" value="60">
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
                 </label>
                 <label><input name = "fontSize" type="range" min="0" max="100" id="fontSizeSlider" value="60">
                     Font Size
-                    <p class="d-inline" id="fontSizeSliderAmount"></p>
+                    <p class="d-inline" id="fontSizeSliderAmount">60</p>
                 </label>
                 <div class="input-group mb-3">
                     <!-- <button class="btn-primary" onclick="setText()" type="button" id="button-addon2">Set Text!</button> -->
@@ -188,7 +189,7 @@
                         <option value="Center Middle">Center Middle</option>
                         <option value="Center Right">Center Right</option>
                     </select>
-                    <p><input type="file" class="btn btn-light" name="file"></p>
+                    <p style="visibility: hidden;"><input type="file" class="btn btn-light" name="file"></p>
                 </div>
                 <button class="btn btn-primary" id="updateButton" onclick="closeOptions()">Update!</button>
                 <!-- <label><input type="button" class="btn btn-outline-success me-2" id="previewButton" onclick="closeOptions()">Preview</label> -->
