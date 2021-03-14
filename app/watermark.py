@@ -3,13 +3,14 @@ import PIL
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+import os
 
 def watermark_text(in_img_path, out_img_path, text, pos):
     photo = Image.open(in_img_path)
     
     drawing = ImageDraw.Draw(photo)
 
-    font_path = "/Users/mikelim/Desktop/Ravberry/Ravberry/app/static/fonts/AgiliaItalic.ttf"
+    font_path = "app/static/fonts/Vonique64.ttf"
 
     temp_color = (0,0,0)
 
@@ -21,6 +22,12 @@ def watermark_text(in_img_path, out_img_path, text, pos):
 
     path = out_img_path
     photo.save(path + "/test.png", "PNG")
+
+    temp_res = 1
+
+    temp_path = os.path.abspath(os.getcwd()) + "/app/static/uploads/test.png"
+
+    resolution(temp_res, temp_path)
 
 def watermark_img(in_img_path, out_img_path, img_to_watermark_path, pos, size, resolution):
     base_image = Image.open(in_img_path)
@@ -38,11 +45,11 @@ def watermark_img(in_img_path, out_img_path, img_to_watermark_path, pos, size, r
 
 # res is on a scale of 1-100 95 is optimal
 def resolution(res, path):
-    image = image.open(path)
+    image = Image.open(path)
 
-    split_path = path.splitext(path)
+    split_path = os.path.splitext(path)
 
-    image.save(split_path[0] + "_new_res" + split_path[1], quality=res)
+    image.save(split_path[0] + "_new_res" + split_path[1], quality=1)
 
     
 if __name__ == '__main__':
