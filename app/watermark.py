@@ -9,7 +9,7 @@ import os
 from pathlib import Path, PureWindowsPath
 
 
-def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, resolution):
+def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, res):
     photo = Image.open(in_img_path)
 
     drawing = ImageDraw.Draw(photo)
@@ -29,7 +29,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     #set test.png later
     photo.save(path + "/test.png", "PNG")
 
-    resolution(resolution, out_img_path)
+    resolution(res, out_img_path)
 
 def watermark_img(
     in_img_path,
@@ -38,7 +38,7 @@ def watermark_img(
     pos,
     mark_base_ratio=0.10,
     size=None,
-    resolution=None,
+    res=None,
 ):
     base_image = Image.open(in_img_path)
 
@@ -51,13 +51,13 @@ def watermark_img(
     base_image.paste(watermark_image, calc_cordinates(base_image, 0.50, 0.50))
     base_image.show()
 
-    resolution(resolution, out_img_path)
+    resolution(res, out_img_path)
 
     
 
 
 def watermark_with_transparency(
-    input_image_path, output_image_path, watermark_image_path, position
+    input_image_path, output_image_path, watermark_image_path, position, res
 ):
     base_image = Image.open(input_image_path)
     watermark = Image.open(watermark_image_path)
@@ -69,7 +69,7 @@ def watermark_with_transparency(
     )
     transparent.show()
 
-    resolution(resolution, out_img_path)
+    resolution(res, output_image_path + "\\test.png")
 
 
 # res is on a scale of 1-100 95 is optimal
