@@ -29,9 +29,9 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     #set test.png later
     photo.save(path + "/test.png", "PNG")
 
-    if resolution >= 95
+    if resolution >= 95:
         resolution(95, out_img_path)
-    else
+    else:
         resolution(resolution, out_img_path)
 
 def watermark_img(
@@ -89,36 +89,36 @@ def calc_cordinates(image, x_ratio, y_ratio):
     return [x, y]
 
 
-def get_font_file(font_name)
-    if font_name == "Agilia"
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf")
-    if font_name == "Times New Roman"
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf")
-    if font_name == "Vonique"
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf")
-    if font_name == "Comic Sans"
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf")
+def get_font_file(font_name):
+    if font_name == "Agilia":
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+    if font_name == "Times New Roman":
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
+    if font_name == "Vonique":
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
+    if font_name == "Comic Sans":
+        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
 
-def get_position(pos)
-    if pos == "top left"
+def get_position(pos):
+    if pos == "top left":
         return (0, 0)
-    if pos == "top middle"
+    if pos == "top middle":
         return (0, 0)
-    if pos == "top right"
+    if pos == "top right":
         return (0, 0)
-    if pos == "bottom left"
+    if pos == "bottom left":
         return (0, 0)
-    if pos == "bottom middle"
+    if pos == "bottom middle":
         return (0, 0)
-    if pos == "bottom right"
+    if pos == "bottom right":
         return (0, 0)
-    if pos == "center left"
+    if pos == "center left":
         return (0, 0)
-    if pos == "center middle"
+    if pos == "center middle":
         return (0, 0)
-    if pos == "center right"
+    if pos == "center right":
         return (0, 0)
-    else
+    else:
         return (0, 0)
 
 if __name__ == "__main__":
