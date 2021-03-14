@@ -161,6 +161,9 @@
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
+                <label><input type="text" id="textInput">
+                    Text for watermark
+                </label>
                 <select class="form-select" id="fontSelector" aria-label="Default select example">
                     <option selected>Select Fonts</option>
                     <option value="Agilia">Agilia</option>
@@ -192,12 +195,14 @@
         let hasImageWatermark = false;
         let fontSize = 20;
         let font;
+        let watermarkText;
 
         // ************************************        
         // Create variables for slider on change events!
         // ************************************        
         var resSlider = document.getElementById("resolutionSlider");
         var resSliderValue = document.getElementById("resolutionSliderAmount");
+        var textInputBox = document.getElementById("textInput");
 
         var fontSlider = document.getElementById("fontSizeSlider");
         var fontSliderValue = document.getElementById("fontSizeSliderAmount");
@@ -215,6 +220,12 @@
             console.log("font value: " + this.value);
         }
 
+        // ************************************
+        // Event change the text input here! 
+        // ************************************
+        textInputBox.onChange = function () {
+            watermarkText = textInputBox.value;
+        }
 
         // ************************************
         // Modal Window Controls
