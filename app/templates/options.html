@@ -133,7 +133,7 @@
                 <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
-        <button type="button" id="submitButton">Submit</button>
+        <button type="button" id="submitButton" onclick="finish()">Finish editting</button>
     </main>
 
     <div id="imageOptionsModal">
@@ -230,6 +230,10 @@
             hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
             hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
             fontSize = document.getElementById("fontSizeSlider").innerHTML;
+        }
+
+        function finish() {
+            window.location = "success.html";
         }
     </script>
 
