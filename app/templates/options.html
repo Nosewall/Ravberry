@@ -133,7 +133,10 @@
                 <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
-        <button type="button" id="submitButton" onclick="finish()">Finish editting</button>
+        <!-- BUTTON ISNT WORKING!!!  -->
+        <form class="container-fluid justify-content-start"></form>
+            <button type="button"  id="submitButton" href=success >Finish editting</button>
+        </form>
     </main>
 
     <div id="imageOptionsModal">
@@ -232,9 +235,9 @@
             fontSize = document.getElementById("fontSizeSlider").innerHTML;
         }
 
-        function finish() {
-            window.location = "success.html";
-        }
+        // function finish() {
+        //     window.location = "success.html";
+        // }
     </script>
 
 </body>

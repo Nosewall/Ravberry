@@ -16,3 +16,7 @@ def index():
             watermark.watermark_text(str(filename), str(uploads_dir), "asdflasdkjfa", [50, 50])
             return render_template('options.html', image_url = "../static/uploads/" + uploaded_file.filename)
     return render_template('index.html')
+
+@app.route('/success', methods=['GET', 'POST'])
+def success():
+    return render_template('success.html')
