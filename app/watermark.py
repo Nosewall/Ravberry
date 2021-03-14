@@ -29,10 +29,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     #set test.png later
     photo.save(path + "/test.png", "PNG")
 
-    if resolution >= 95:
-        resolution(95, out_img_path)
-    else:
-        resolution(resolution, out_img_path)
+    resolution(resolution, out_img_path)
 
 def watermark_img(
     in_img_path,
@@ -54,6 +51,10 @@ def watermark_img(
     base_image.paste(watermark_image, calc_cordinates(base_image, 0.50, 0.50))
     base_image.show()
 
+    resolution(resolution, out_img_path)
+
+    
+
 
 def watermark_with_transparency(
     input_image_path, output_image_path, watermark_image_path, position
@@ -68,12 +69,17 @@ def watermark_with_transparency(
     )
     transparent.show()
 
+    resolution(resolution, out_img_path)
+
 
 # res is on a scale of 1-100 95 is optimal
 def resolution(res, path):
     image = Image.open(path)
 
     split_path = os.path.splitext(path)
+
+    if res >= 95:
+        res = 95
 
     image.save(split_path[0] + "_new_res.jpg", quality=res)
 
@@ -120,6 +126,8 @@ def get_position(pos):
         return (0, 0)
     else:
         return (0, 0)
+
+def 
 
 if __name__ == "__main__":
     img = "static/ravberry.png"
