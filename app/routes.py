@@ -11,7 +11,9 @@ def index():
     if request.method == "POST":
         uploaded_file = request.files["file"]
         if uploaded_file.filename != "":
-            filename = os.path.join(str(uploads_dir), uploaded_file.filename)
+            filename = os.path.join(str(uploads_dir), uploaded_file.f
+            
+            ilename)
             uploaded_file.save(os.path.join(uploads_dir, uploaded_file.filename))
             watermark.watermark_text(
                 str(filename), str(uploads_dir), "asdflasdkjfa", [50, 50]

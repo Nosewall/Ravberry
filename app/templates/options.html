@@ -87,6 +87,8 @@
             height: 80%;
             background-color: gray;
             margin: auto auto;
+            justify-content: space-evenly;
+            text-align: center;
         }
     </style>
 </head>
@@ -96,11 +98,11 @@
     <main id="main">
         <div class="container" id="splashContainer">
             <div id="sidebar">
-                <button id="optionsButton" onClick="openOptions()"></button>
+                <button id="optionsButton" onClick="openOptions()">Open Options</button>
 
             </div>
             <div id="display">
-                <img src="" alt="" id="previewImage">
+                <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
         <button type="button" id="submitButton">Submit</button>
@@ -108,14 +110,24 @@
 
     <div id="imageOptionsModal">
         <div id="imageOptions">
-            <label><input type="checkbox" id="imageMarkCheckBox">Image Watermark</label>
+            <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
             <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
-            <label><input type="range" min="0" max="100" id="resolutionSlider">Resolution</label>
-            <label><input type="button" id="previewButton" onclick="closeOptions()">Preview</label>
+            <input type="range" min="0" max="100" id="resolutionSlider">
+            <label>Resolution</label>
+            <input type="range" min="0" max="100" id="fontSizeSlider">
+            <label>Font Size</label>
+            <button id="previewButton" onclick="closeOptions()">Preview</button>
         </div>
     </div>
 
     <script>
+
+        let resolution = 100;
+        let hasTextWatermark = false;
+        let hasImageWatermark = false;
+        let fontSize = 20;
+        let font;
+
         function openOptions() {
             document.getElementById("imageOptionsModal").style.display = "flex";
             document.getElementById("main").style.display = "none"
@@ -124,6 +136,14 @@
         function closeOptions() {
             document.getElementById("imageOptionsModal").style.display = "none";
             document.getElementById("main").style.display = "flex"
+            updateVariables()
+        }
+
+        function updateVariables() {
+            resolution = document.getElementById("resolutionSlider").value;
+            hasTextWatermark = document.getElementById("textMarkCheckBox").value;
+            hasImageWatermark = document.getElementById("imageMarkCheckBox").value;
+            fontSize = document.getElementById("fontSizeSlider").value;
         }
     </script>
 

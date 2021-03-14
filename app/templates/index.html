@@ -26,7 +26,7 @@
         }
 
         #splashContainer {
-            width: 20%;
+            width: 50%;
             height: 20%;
             margin: auto auto;
             background-color: white;
@@ -40,7 +40,8 @@
         }
 
         #buttonDiv {
-            height: 60%;
+            /* height: 60%;
+            width: 50%; */
             display: flex;
             justify-content: space-evenly;
         }
@@ -75,6 +76,8 @@
         #linkButton:hover {
             border: 1px solid black;
         }
+
+
     </style>
 </head>
 
@@ -83,16 +86,16 @@
 
     <div class="container" id="splashContainer">
         <p id="splash">Welcome to the Ravberry</p>
-        <p id="description">Please choose how you'd like to upload your file</p>
-        <div class="container" id="buttonDiv">
+        <p id="description">Please choose a file to upload</p>
+        <!-- <div class="container" id="buttonDiv">
             <button type="button" class="btn btn-light" id="imageButton">Upload an image</button>
             <button type="button" class="btn btn-light" id="linkButton">Link to an image</button>
-        </div>
+        </div> -->
 
         <form method="POST" action="" enctype="multipart/form-data">
-            <p><input type="file" name="file"></p>
-            <p><input type="submit" value="Submit"></p>
-          </form>
+            <p><input type="file" class="btn btn-light" name="file"></p>
+            <p><input type="submit"  class="btn btn-light" value="Submit"></p>
+        </form>
     </div>
 
 </body>
