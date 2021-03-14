@@ -12,7 +12,7 @@ def watermark_text(in_img_path, out_img_path, text, pos):
     
     drawing = ImageDraw.Draw(photo)
 
-    filename = PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+    filename = Path(os.path.join(os.path.abspath(os.getcwd()) + "/app/static/fonts/AgiliaItalic.ttf"))
 
     temp_color = (0,0,0)
 
