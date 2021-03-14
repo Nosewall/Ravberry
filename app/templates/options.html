@@ -7,13 +7,12 @@
     <link rel="shortcut icon" href="{{url_for('static', filename='images/ravberry.png')}}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!-- Not using external style sheet     -->
-    <!-- <link rel="stylesheet" href="/app/static/styles/styles.css"> -->
+    <link rel="stylesheet" href="/app/static/styles/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
         body {
-            background-image: url('/static/images/RaspberryField.jpg');
+            background-image: url('static/images/RaspberryField.jpg');
             width: 100%;
             height: 100%;
             background-size: cover;
@@ -94,8 +93,8 @@
             display: flex;
             flex-direction: column;
             width: 80%;
-            height: 100%;
-            background-color: #adb5bd;
+            height: 80%;
+            background-color: rgb(196, 182, 182);
             margin: auto auto;
             justify-content: space-evenly;
             text-align: center;
@@ -144,21 +143,19 @@
 
         <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage"
             href="{{url_for('static', filename='uploads/test.png')}}" role="button">Download</a>
-        <a href="{{url_for('static', filename='uploads/test.png')}}" target="_blank" class="btn btn-secondary btn-sm"
-            id="enlarge">Enlarge</a>
 
     </main>
 
     <div id="imageOptionsModal">
         <div id="imageOptions" class="card"  style="width: 25rem;">
             <form method="POST" action="" enctype="multipart/form-data">
-                <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
-                <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
-                <label><input type="range" min="1" max="100" id="resolutionSlider" name="resolution" value="60">
+                <label><input type="radio" id="imageMarkCheckBox" name="watermarkType">Image watermark</label>
+                <label><input type="radio" id="textMarkCheckBox" name="watermarkType">Text Watermark</label>
+                <label><input type="range" min="0" max="100" id="resolutionSlider" value="60">
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
                 </label>
-                <label><input type="range" min="1" max="100" id="fontSizeSlider" value="60">
+                <label><input type="range" min="0" max="100" id="fontSizeSlider" value="60">
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
@@ -209,6 +206,11 @@
         // Create variables for slider on change events!
         // ************************************        
         var resSlider = document.getElementById("resolutionSlider");
+
+        var textWaterMarkBox = document.getElementById("textMarkCheckBox");
+        var imageWaterMarkBox = document.getElementById("imageMarkCheckBox");
+
+
         var resSliderValue = document.getElementById("resolutionSliderAmount");
         var textInputBox = document.getElementById("textInput");
 
@@ -227,6 +229,16 @@
             fontSliderValue.innerHTML = this.value;
             console.log("font value: " + this.value);
         }
+
+        textWaterMarkBox.onchange = function () {
+            changeWaterMarkType();
+        }
+
+        imageWaterMarkBox.onchange = function () {
+            changeWaterMarkType();
+        }
+
+
 
         // ************************************
         // Event change the text input here! 
@@ -271,6 +283,10 @@
 
         function setText() {
             watermarkText = textInputBox.value;
+        }
+
+        function changeWaterMarkType() {
+
         }
     </script>
 
