@@ -155,13 +155,13 @@
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
                 </label>
-                <label><input type="range" min="0" max="100" id="fontSizeSlider" value="60">
+                <label><input name = "fontSize" type="range" min="0" max="100" id="fontSizeSlider" value="60">
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
                 <div class="input-group mb-3">
                     <button class="btn-primary" onclick="setText()" type="button" id="button-addon2">Set Text!</button>
-                    <input type="text" class="form-control" placeholder="Text for watermark!" aria-label="Text for watermark!" aria-describedby="button-addon2">
+                    <input name="watermarkText" type="text" class="form-control" placeholder="Text for watermark!" aria-label="Text for watermark!" aria-describedby="button-addon2">
                 </div>
                 <!-- <label class="d-inline"><input type="text" id="textInput" class="form-control" placeholder="Text for watermark!"> 
                     <button onclick="setText()" class="btn btn-outline-secondary" type="button"> 

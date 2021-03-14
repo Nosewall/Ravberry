@@ -24,15 +24,15 @@ def index():
 def options(uploaded_file):
     if request.method == "POST":
         print(request.form["position"])
-
+        print(request.form["watermarkText"])
         # text = request.form["text"]
         # resolution = request.form["resolution"]
         # font = request.form["fonts"]
         if uploaded_file[-3:] == "png" or uploaded_file[-3:] == "gif":
             print("transparency")
             image_path = str(uploads_dir) + "\\" + uploaded_file
-            file = watermark.watermark_with_transparency(
-                image_path, str(uploads_dir), watermarks_dir, request.form["position"].lower(), int(request.form["resolution"])
+            file = watermark.watermark_text(
+                image_path, str(uploads_dir), request.form["watermarkText"], request.form["position"].lower(), 'Agilia', request.form["fontSize"], int(request.form["resolution"])
             )
             return render_template(
                 "options.html", image_url="../static/uploads" + file

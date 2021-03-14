@@ -15,7 +15,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
 
     font_file = get_font_file(font_name)
 
-    temp_font = ImageFont.truetype(str(Path(font_file)), font_size)
+    temp_font = ImageFont.truetype(str(Path(font_file)), int(font_size))
 
     temp_pos = get_position(pos, base_image)
 
@@ -28,7 +28,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     #set test.png later
     base_image.save(path + "/test.png", "PNG")
 
-    resolution(res, out_img_path)
+    return "/test.png"
 
 def watermark_img(
     in_img_path,
@@ -53,10 +53,6 @@ def watermark_img(
     base_image.save(path + "/test.png", "PNG")
 
     base_image.show()
-
-    resolution(res, out_img_path)
-
-    
 
 
 def watermark_with_transparency(
@@ -105,13 +101,13 @@ def calc_cordinates(image, x_ratio, y_ratio):
 
 def get_font_file(font_name):
     if font_name == "Agilia":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
     if font_name == "Times New Roman":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
     if font_name == "Vonique":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
     if font_name == "Comic Sans":
-        return PureWindowsPath(os.path.join(s.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
+        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
 
 def get_position(pos, image):
     if pos == "top left":
