@@ -111,6 +111,11 @@
             width: 50%;
             margin: 0 auto;
         }
+
+        #downloadAll, #enlarge{
+            width: 30%;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -133,10 +138,10 @@
                 <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
-        <!-- BUTTON ISNT WORKING!!!  -->
-        <form class="container-fluid justify-content-start"></form>
-            <button type="button"  id="submitButton" href=success >Finish editting</button>
-        </form>
+
+        <a class="btn btn-primary" id="downloadAll" download="waterMarkedImage" href="{{url_for('static', filename='uploads/test.png')}}" role="button">Download</a>
+        <a href="{{url_for('static', filename='uploads/test.png')}}" target="_blank" class="btn btn-secondary btn-sm" id="enlarge">Enlarge</a>
+
     </main>
 
     <div id="imageOptionsModal">
