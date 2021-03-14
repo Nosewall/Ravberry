@@ -101,25 +101,25 @@ def get_font_file(font_name):
 
 def get_position(pos):
     if pos == "top left":
-        return (0, 0)
+        return (.10, .10)
     if pos == "top middle":
-        return (0, 0)
+        return (.10, .50)
     if pos == "top right":
-        return (0, 0)
+        return (.10, .75)
     if pos == "bottom left":
-        return (0, 0)
+        return (.75, .10)
     if pos == "bottom middle":
-        return (0, 0)
+        return (.75, .50)
     if pos == "bottom right":
-        return (0, 0)
+        return (.75, .75)
     if pos == "center left":
-        return (0, 0)
+        return (.50,.10)
     if pos == "center middle":
-        return (0, 0)
+        return (.50, .50)
     if pos == "center right":
-        return (0, 0)
+        return (.50, .75)
     else:
-        return (0, 0)
+        return (0.10, .75)
 
 if __name__ == "__main__":
     img = "static/ravberry.png"
