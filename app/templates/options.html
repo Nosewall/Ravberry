@@ -80,7 +80,7 @@
 
         #imageOptionsModal {
             width: 60%;
-            height: 60%;
+            height: 80%;
             display: none;
             margin: auto auto;
             flex-direction: column;
@@ -168,25 +168,27 @@
                         Set text!
                     </button>
                 </label> -->
-                <select class="form-select" id="fontSelector" aria-label="Default select example">
-                    <option selected>Select Fonts</option>
-                    <option value="Agilia">Agilia</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Vonique">Vonique</option>
-                    <option value="Comic Sans">Comic Sans</option>
-                </select>
-                <select class="d-block form-select" id="positionSelector" name="position" aria-label="Default select example">
-                    <option selected>Select Position</option>
-                    <option value="Top Left">Top Left</option>
-                    <option value="Top Middle">Top Middle</option>
-                    <option value="Top Right">Top Right</option>
-                    <option value="Bottom Left">Bottom Left</option>
-                    <option value="Bottom Right">Bottom Right</option>
-                    <option value="Center Left">Center Left</option>
-                    <option value="Center Middle">Center Middle</option>
-                    <option value="Center Right">Center Right</option>
-                </select>
-                <p><input type="file" class="btn btn-light" name="file"></p>
+                <div class="d-grid gap-3"> 
+                    <select class="form-select" id="fontSelector" aria-label="Default select example">
+                        <option selected>Select Fonts</option>
+                        <option value="Agilia">Agilia</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Vonique">Vonique</option>
+                        <option value="Comic Sans">Comic Sans</option>
+                    </select>
+                    <select class="d-block form-select" id="positionSelector" name="position" aria-label="Default select example">
+                        <option selected>Select Position</option>
+                        <option value="Top Left">Top Left</option>
+                        <option value="Top Middle">Top Middle</option>
+                        <option value="Top Right">Top Right</option>
+                        <option value="Bottom Left">Bottom Left</option>
+                        <option value="Bottom Right">Bottom Right</option>
+                        <option value="Center Left">Center Left</option>
+                        <option value="Center Middle">Center Middle</option>
+                        <option value="Center Right">Center Right</option>
+                    </select>
+                    <p><input type="file" class="btn btn-light" name="file"></p>
+                </div>
                 <button class="btn btn-primary" id="updateButton" onclick="closeOptions()">Update!</button>
                 <!-- <label><input type="button" class="btn btn-outline-success me-2" id="previewButton" onclick="closeOptions()">Preview</label> -->
             </form>
