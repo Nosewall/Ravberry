@@ -134,6 +134,3 @@ def get_position(pos, image):
         return calc_cordinates(image, .50, .75)
     else:
         return calc_cordinates(image, .10, .75)
-
-
-
