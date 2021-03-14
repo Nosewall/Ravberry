@@ -71,17 +71,17 @@ def watermark_with_transparency(
         watermark, get_position(pos, base_image), mask=watermark
     )
 
-    path = out_img_path
-
-    base_image.save(path + "/test.png", "PNG")
+    transparent.save(out_img_path + "test.png", "PNG")
 
     transparent.show()
 
-    resolution(res, out_img_path + "\\test.png")
+    return "/test.png"
+
+   # resolution(res, out_img_path + "\\test.png")
 
 
 # res is on a scale of 1-100 95 is optimal
-def resolution(res, path):
+"""def resolution(res, path):
     image = Image.open(path)
 
     split_path = os.path.splitext(path)
@@ -89,8 +89,8 @@ def resolution(res, path):
     if res >= 95:
         res = 95
 
-    image.save(split_path[0] + "_new_res.png", quality=res)
-
+    image.save(split_path[0] + "_new_res.jpg", quality=res)
+"""
 
 
 # Returns the x and y pixel location depending on the x_ratio and y_ratio.
