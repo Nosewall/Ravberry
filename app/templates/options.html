@@ -100,7 +100,7 @@
 
             </div>
             <div id="display">
-                <img src="" alt="" id="previewImage">
+                <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
         <button type="button" id="submitButton">Submit</button>
@@ -136,10 +136,10 @@
         }
 
         function updateVariables() {
-            resolution = document.getElementById("resolutionSlider").innerHTML;
-            hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
-            hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
-            fontSize = document.getElementById("fontSizeSlider").innerHTML;
+            resolution = document.getElementById("resolutionSlider").value;
+            hasTextWatermark = document.getElementById("textMarkCheckBox").value;
+            hasImageWatermark = document.getElementById("imageMarkCheckBox").value;
+            fontSize = document.getElementById("fontSizeSlider").value;
         }
     </script>
 

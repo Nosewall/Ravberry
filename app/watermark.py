@@ -5,7 +5,7 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-from pathlib import Path, PureWindowsPath
+from pathlib import Path
 
 def watermark_text(in_img_path, out_img_path, text, pos):
     photo = Image.open(in_img_path)
