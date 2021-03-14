@@ -13,7 +13,7 @@ def watermark_text(in_img_path, out_img_path, text, pos):
     
     drawing = ImageDraw.Draw(photo)
 
-    filename = PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+    filename = Path(os.path.join(os.path.abspath(os.getcwd()) + "/app/static/fonts/AgiliaItalic.ttf"))
 
     temp_color = (0,0,0)
 
@@ -52,9 +52,6 @@ def resolution(res, path):
 
     split_path = os.path.splitext(path)
 
-    image.save(split_path[0] + "_new_res" + split_path[1], quality=1)
+    image.save(split_path[0] + "_new_res.jpg", quality=res)
 
-    
-if __name__ == '__main__':
-    img = 'static/ravberry.png'
-    wm_text(img, 'imageWaterMarked.png', text='hi there its mike lim', pos=(100, 100))
+
