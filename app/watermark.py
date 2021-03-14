@@ -1,21 +1,24 @@
 import PIL
+import os
 
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+
+from pathlib import Path, PureWindowsPath
 
 def watermark_text(in_img_path, out_img_path, text, pos):
     photo = Image.open(in_img_path)
     
     drawing = ImageDraw.Draw(photo)
 
-    font_path = "/Users/mikelim/Desktop/Ravberry/Ravberry/app/static/fonts/AgiliaItalic.ttf"
+    filename = PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
 
     temp_color = (0,0,0)
 
     temp_size = 40
 
-    temp_font = ImageFont.truetype(font_path, temp_size)
+    temp_font = ImageFont.truetype(str(Path(filename)), temp_size)
 
     drawing.text(pos, text, fill=temp_color, font=temp_font)
 
