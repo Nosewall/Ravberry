@@ -3,8 +3,7 @@ from app import watermark
 from flask import Flask, render_template, request, redirect, url_for
 import os
 
-uploads_dir = os.path.abspath(os.getcwd()) + "\app\static\uploads"
-print(uploads_dir)
+uploads_dir = Path(os.path.abspath(os.getcwd()) + "/app/static/uploads")
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -12,8 +11,10 @@ def index():
     if request.method == "POST":
         uploaded_file = request.files["file"]
         if uploaded_file.filename != "":
-            filename = os.path.join(uploads_dir, uploaded_file.filename)
+            filename = os.path.join(str(uploads_dir), uploaded_file.filename)
             uploaded_file.save(os.path.join(uploads_dir, uploaded_file.filename))
-            watermark.watermark_text(filename, uploads_dir, "FUGGG", [50, 50])
+            watermark.watermark_text(
+                str(filename), str(uploads_dir), "asdflasdkjfa", [50, 50]
+            )
             return render_template("success.html")
     return render_template("index.html")
