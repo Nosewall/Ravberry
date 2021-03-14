@@ -10,9 +10,9 @@ watermarks_dir = Path(
 )
 
 
+@app.route("/index")
 @app.route("/", methods=["GET", "POST"])
 def index():
-
     if request.method == "POST":
         uploaded_file = request.files["file"]
         if uploaded_file.filename != "":

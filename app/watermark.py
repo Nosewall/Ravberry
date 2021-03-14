@@ -8,33 +8,36 @@ import os
 
 from pathlib import Path, PureWindowsPath
 
-def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, resolution):
+
+def watermark_text(
+    in_img_path, out_img_path, text, pos, font_name, font_size, resolution
+):
     base_image = Image.open(in_img_path)
 
     drawing = ImageDraw.Draw(base_image)
 
     font_file = get_font_file(font_name)
-
     temp_font = ImageFont.truetype(str(Path(font_file)), int(font_size))
 
     temp_pos = get_position(pos, base_image)
 
-    font_color = (0,0,0)
-    
+    font_color = (0, 0, 0)
+
     drawing.text(temp_pos, text, fill=font_color, font=temp_font)
 
     path = out_img_path
 
-    #set test.png later
+    # set test.png later
     base_image.save(path + "/test.png", "PNG")
 
     return "/test.png"
+
 
 def watermark_img(
     in_img_path,
     out_img_path,
     img_to_watermark_path,
-    pos,  
+    pos,
     resolution,
     mark_base_ratio=0.10,
 ):
@@ -63,9 +66,7 @@ def watermark_with_transparency(
     width, height = base_image.size
     transparent = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     transparent.paste(base_image, (0, 0))
-    transparent.paste(
-        watermark, get_position(pos, base_image), mask=watermark
-    )
+    transparent.paste(watermark, get_position(pos, base_image), mask=watermark)
 
     transparent.save(out_img_path + "test.png", "PNG")
 
@@ -73,7 +74,8 @@ def watermark_with_transparency(
 
     return "/test.png"
 
-   # resolution(res, out_img_path + "\\test.png")
+
+# resolution(res, out_img_path + "\\test.png")
 
 
 # res is on a scale of 1-100 95 is optimal
@@ -101,13 +103,30 @@ def calc_cordinates(image, x_ratio, y_ratio):
 
 def get_font_file(font_name):
     if font_name == "Agilia":
-        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"))
+        return PureWindowsPath(
+            os.path.join(
+                os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\AgiliaItalic.ttf"
+            )
+        )
     if font_name == "Times New Roman":
-        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"))
+        return PureWindowsPath(
+            os.path.join(
+                os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\TimesNewRoman.ttf"
+            )
+        )
     if font_name == "Vonique":
-        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"))
+        return PureWindowsPath(
+            os.path.join(
+                os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Vonique64.ttf"
+            )
+        )
     if font_name == "Comic Sans":
-        return PureWindowsPath(os.path.join(os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"))
+        return PureWindowsPath(
+            os.path.join(
+                os.path.abspath(os.getcwd()) + "\\app\\static\\fonts\\Comic.ttf"
+            )
+        )
+
 
 def get_position(pos, image):
     if pos == "top left":
@@ -130,5 +149,3 @@ def get_position(pos, image):
         return calc_cordinates(image, 0.75, 0.50)
     else:
         return calc_cordinates(image, 0.10, 0.75)
-
-

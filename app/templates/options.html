@@ -56,7 +56,7 @@
             justify-content: space-around;
             border-collapse: collapse;
             grid-column: 1-1;
-            
+
             /* margin: auto; */
             background-color: #adb5bd;
         }
@@ -130,7 +130,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <form class="container-fluid justify-content-start">
-            <button class="btn btn-outline-success me-2" href=index id="homeBtn">Home</button>
+            <a class="btn btn-outline-success me-2" href="{{ url_for('index') }}" id="homeBtn">Another Image?</a>
         </form>
     </nav>
 
@@ -157,7 +157,7 @@
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
                 </label>
-                <label><input name = "fontSize" type="range" min="0" max="100" id="fontSizeSlider" value="60">
+                <label><input name="fontSize" type="range" min="0" max="100" id="fontSizeSlider" value="60">
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount">60</p>
                 </label>
@@ -187,7 +187,7 @@
                         <option value="Top Right">Top Right</option>
                         <option value="Bottom Left">Bottom Left</option>
                         <option value="Bottom Middle">Bottom Middle</option>
-                        <option value="Bottom Right">Bottom Right</option> 
+                        <option value="Bottom Right">Bottom Right</option>
                         <option value="Center Left">Center Left</option>
                         <option value="Center Middle">Center Middle</option>
                         <option value="Center Right">Center Right</option>
