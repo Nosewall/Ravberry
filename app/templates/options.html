@@ -55,7 +55,7 @@
         #display {
             grid-column: 2-2;
             border-style: solid;
-            max-width:  500px;
+            max-width: 500px;
             /* max-height: 100%; */
         }
 
@@ -99,7 +99,6 @@
             height: auto;
             align-self: center;
         }
-
     </style>
 </head>
 
@@ -117,7 +116,7 @@
                 <img src="{{image_url}}" alt="" id="previewImage">
             </div>
         </div>
-        <button type="button" id="submitButton">Submit</button>
+        <button type="button" id="submitButton" onclick="finish()">Finish editting</button>
     </main>
 
     <div id="imageOptionsModal">
@@ -156,17 +155,17 @@
         // ************************************
         // Event Change update the values here! 
         // ************************************
-        resSlider.onchange = function(){
+        resSlider.onchange = function () {
             resSliderValue.innerHTML = this.value;
             console.log("resolution value: " + this.value);
         }
 
-        fontSlider.onchange = function() {
+        fontSlider.onchange = function () {
             fontSliderValue.innerHTML = this.value;
             console.log("font value: " + this.value);
-        }            
+        }
 
-        
+
         // ************************************
         // Modal Window Controls
         // ************************************
@@ -195,7 +194,11 @@
             hasTextWatermark = document.getElementById("textMarkCheckBox").innerHTML;
             hasImageWatermark = document.getElementById("imageMarkCheckBox").innerHTML;
             fontSize = document.getElementById("fontSizeSlider").innerHTML;
-        } 
+        }
+
+        function finish() {
+            window.location = "success.html";
+        }
     </script>
 
 </body>
