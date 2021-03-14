@@ -161,7 +161,7 @@
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
-                <label><input type="text" id="textInput">
+                <label><input type="text" id="textInput"> <button onclick="setText()">Set text!</button>
                     Text for watermark
                 </label>
                 <select class="form-select" id="fontSelector" aria-label="Default select example">
@@ -260,6 +260,10 @@
         // function finish() {
         //     window.location = "success.html";
         // }
+
+        function setText() {
+            watermarkText = textInputBox.value;
+        }
     </script>
 
 </body>
