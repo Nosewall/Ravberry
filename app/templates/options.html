@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ravberry - Watermarks</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="{{url_for('static', filename='ravberry.png')}}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/app/static/styles/styles.css">
+
+    <style>
+        body {
+            background-image: url('/app/static/images/RaspberryField.jpg');
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        html {
+            width: 100%;
+            height: 100%
+        }
+
+        #splashContainer {
+            background-color: white;
+            display: grid;
+            grid-template-columns: 10% 1fr;
+            grid-template-rows: 1fr;
+            width: 60%;
+            height: 60%;
+            border-style: solid;
+
+        }
+
+        #sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-collapse: collapse;
+            grid-column: 1-1;
+        }
+
+        #display {
+            grid-column: 2-2;
+            border-style: solid;
+        }
+
+        #imgIcon {
+            width: 90%;
+            border-style: solid;
+        }
+
+        #textIcon {
+            width: 90%;
+            border-style: solid;
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="container" id="splashContainer">
+        <div id="sidebar">
+            <img src="/app/static/images/imageIcon.png" id="imgIcon">
+            <img src="/app/static/images/textIcon.png" id="textIcon">
+        </div>
+        <div id="display">
+            <img src="" alt="" id="previewImage">
+        </div>
+    </div>
+
+</body>
+
+</html>
