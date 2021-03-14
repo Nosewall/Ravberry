@@ -94,8 +94,8 @@
             display: flex;
             flex-direction: column;
             width: 80%;
-            height: 80%;
-            background-color: gray;
+            height: 100%;
+            background-color: #adb5bd;
             margin: auto auto;
             justify-content: space-evenly;
             text-align: center;
@@ -150,7 +150,7 @@
     </main>
 
     <div id="imageOptionsModal">
-        <div id="imageOptions" class="card"  style="width: 20rem;">
+        <div id="imageOptions" class="card"  style="width: 25rem;">
             <form method="POST" action="" enctype="multipart/form-data">
                 <label><input type="checkbox" id="imageMarkCheckBox">Image watermark</label>
                 <label><input type="checkbox" id="textMarkCheckBox">Text Watermark</label>
@@ -162,12 +162,15 @@
                     Font Size
                     <p class="d-inline" id="fontSizeSliderAmount"></p>
                 </label>
-                <label class="d-inline"><input type="text" id="textInput"> 
-                    Text for watermark!
-                    <button onclick="setText()">
+                <div class="input-group mb-3">
+                    <button class="btn-primary" onclick="setText()" type="button" id="button-addon2">Set Text!</button>
+                    <input type="text" class="form-control" placeholder="Text for watermark!" aria-label="Text for watermark!" aria-describedby="button-addon2">
+                </div>
+                <!-- <label class="d-inline"><input type="text" id="textInput" class="form-control" placeholder="Text for watermark!"> 
+                    <button onclick="setText()" class="btn btn-outline-secondary" type="button"> 
                         Set text!
                     </button>
-                </label>
+                </label> -->
                 <select class="form-select" id="fontSelector" aria-label="Default select example">
                     <option selected>Select Fonts</option>
                     <option value="Agilia">Agilia</option>
@@ -175,7 +178,7 @@
                     <option value="Vonique">Vonique</option>
                     <option value="Comic Sans">Comic Sans</option>
                 </select>
-                <select class="form-select" id="positionSelector" name="position" aria-label="Default select example">
+                <select class="d-block form-select" id="positionSelector" name="position" aria-label="Default select example">
                     <option selected>Select Position</option>
                     <option value="Top Left">Top Left</option>
                     <option value="Top Middle">Top Middle</option>
@@ -186,6 +189,7 @@
                     <option value="Center Middle">Center Middle</option>
                     <option value="Center Right">Center Right</option>
                 </select>
+                <p><input type="file" class="btn btn-light" name="file"></p>
                 <button class="btn btn-primary" id="updateButton" onclick="closeOptions()">Update!</button>
                 <!-- <label><input type="button" class="btn btn-outline-success me-2" id="previewButton" onclick="closeOptions()">Preview</label> -->
             </form>
