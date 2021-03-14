@@ -8,17 +8,16 @@ import os
 
 from pathlib import Path, PureWindowsPath
 
+def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, resolution):
+    base_image = Image.open(in_img_path)
 
-def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, res):
-    photo = Image.open(in_img_path)
-
-    drawing = ImageDraw.Draw(photo)
+    drawing = ImageDraw.Draw(base_image)
 
     font_file = get_font_file(font_name)
 
     temp_font = ImageFont.truetype(str(Path(font_file)), font_size)
 
-    temp_pos = get_position(pos, photo)
+    temp_pos = get_position(pos, base_image)
 
     font_color = (0,0,0)
     
@@ -27,7 +26,7 @@ def watermark_text(in_img_path, out_img_path, text, pos, font_name, font_size, r
     path = out_img_path
 
     #set test.png later
-    photo.save(path + "/test.png", "PNG")
+    base_image.save(path + "/test.png", "PNG")
 
     resolution(res, out_img_path)
 
@@ -35,10 +34,9 @@ def watermark_img(
     in_img_path,
     out_img_path,
     img_to_watermark_path,
-    pos,
+    pos,  
+    resolution,
     mark_base_ratio=0.10,
-    size=None,
-    res=None,
 ):
     base_image = Image.open(in_img_path)
 
@@ -48,7 +46,12 @@ def watermark_img(
     watermark_image = watermark_image.resize(
         (int(width * mark_base_ratio), int(height * mark_base_ratio)), Image.ANTIALIAS
     )
-    base_image.paste(watermark_image, calc_cordinates(base_image, 0.50, 0.50))
+    base_image.paste(watermark_image, get_position(pos, base_image))
+
+    path = out_img_path
+
+    base_image.save(path + "/test.png", "PNG")
+
     base_image.show()
 
     resolution(res, out_img_path)
@@ -57,19 +60,24 @@ def watermark_img(
 
 
 def watermark_with_transparency(
-    input_image_path, output_image_path, watermark_image_path, position, res
+    in_img_path, out_img_path, img_to_watermark_path, pos, res
 ):
-    base_image = Image.open(input_image_path)
-    watermark = Image.open(watermark_image_path)
+    base_image = Image.open(in_img_path)
+    watermark = Image.open(img_to_watermark_path)
     width, height = base_image.size
     transparent = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     transparent.paste(base_image, (0, 0))
     transparent.paste(
-        watermark, calc_cordinates(base_image, 0.50, 0.50), mask=watermark
+        watermark, get_position(pos, base_image), mask=watermark
     )
+
+    path = out_img_path
+
+    base_image.save(path + "/test.png", "PNG")
+
     transparent.show()
 
-    resolution(res, output_image_path + "\\test.png")
+    resolution(res, out_img_path + "\\test.png")
 
 
 # res is on a scale of 1-100 95 is optimal
@@ -81,7 +89,7 @@ def resolution(res, path):
     if res >= 95:
         res = 95
 
-    image.save(split_path[0] + "_new_res.jpg", quality=res)
+    image.save(split_path[0] + "_new_res.png", quality=res)
 
 
 
@@ -108,27 +116,24 @@ def get_font_file(font_name):
 def get_position(pos, image):
     if pos == "top left":
         return calc_cordinates(image, .10, .10)
-    if pos == "top middle":
+    elif pos == "top middle":
         return calc_cordinates(image, .10, .50)
-    if pos == "top right":
+    elif pos == "top right":
         return calc_cordinates(image, .10, .75)
-    if pos == "bottom left":
+    elif pos == "bottom left":
         return calc_cordinates(image, .75, .10)
-    if pos == "bottom middle":
+    elif pos == "bottom middle":
         return calc_cordinates(image, .75, .50)
-    if pos == "bottom right":
+    elif pos == "bottom right":
         return calc_cordinates(image, .75, .75)
-    if pos == "center left":
+    elif pos == "center left":
         return calc_cordinates(image, .50,.10)
-    if pos == "center middle":
+    elif pos == "center middle":
         return calc_cordinates(image, .50, .50)
-    if pos == "center right":
+    elif pos == "center right":
         return calc_cordinates(image, .50, .75)
     else:
         return calc_cordinates(image, .10, .75)
 
 
-if __name__ == "__main__":
-    img = "static/ravberry.png"
-    wm_text(img, "imageWaterMarked.png", text="hi there its mike lim", pos=(100, 100))
 
