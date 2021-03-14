@@ -147,10 +147,8 @@
     </main>
 
     <div id="imageOptionsModal">
-        <div id="imageOptions" class="card"  style="width: 25rem;">
+        <div id="imageOptions" class="card" style="width: 25rem;">
             <form method="POST" action="" enctype="multipart/form-data">
-                <label><input type="radio" id="imageMarkCheckBox" name="watermarkType">Image watermark</label>
-                <label><input type="radio" id="textMarkCheckBox" name="watermarkType">Text Watermark</label>
                 <label><input type="range" min="0" max="100" id="resolutionSlider" name="resolution" value="60">
                     Resolution
                     <p class="d-inline" id="resolutionSliderAmount"></p>
@@ -161,14 +159,15 @@
                 </label>
                 <div class="input-group mb-3">
                     <!-- <button class="btn-primary" onclick="setText()" type="button" id="button-addon2">Set Text!</button> -->
-                    <input type="text" class="form-control" placeholder="Text for watermark!" aria-label="Text for watermark!" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" placeholder="Text for watermark!"
+                        aria-label="Text for watermark!" aria-describedby="button-addon2">
                 </div>
                 <!-- <label class="d-inline"><input type="text" id="textInput" class="form-control" placeholder="Text for watermark!"> 
                     <button onclick="setText()" class="btn btn-outline-secondary" type="button"> 
                         Set text!
                     </button>
                 </label> -->
-                <div class="d-grid gap-3"> 
+                <div class="d-grid gap-3">
                     <select class="form-select" id="fontSelector" aria-label="Default select example">
                         <option selected>Select Fonts</option>
                         <option value="Agilia">Agilia</option>
@@ -176,7 +175,8 @@
                         <option value="Vonique">Vonique</option>
                         <option value="Comic Sans">Comic Sans</option>
                     </select>
-                    <select class="d-block form-select" id="positionSelector" name="position" aria-label="Default select example">
+                    <select class="d-block form-select" id="positionSelector" name="position"
+                        aria-label="Default select example">
                         <option selected>Select Position</option>
                         <option value="Top Left">Top Left</option>
                         <option value="Top Middle">Top Middle</option>
